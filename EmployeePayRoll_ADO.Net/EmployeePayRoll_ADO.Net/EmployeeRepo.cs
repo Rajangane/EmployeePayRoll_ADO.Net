@@ -34,24 +34,16 @@ namespace EmployeePayRoll_ADO.Net
                             employeeModel.EmployeeName = dr.GetString(1);
                             employeeModel.PhoneNumber = dr.GetString(2);
                             employeeModel.Address = dr.GetString(3);
-
                             employeeModel.Department = dr.GetString(4);
                             employeeModel.Gender = Convert.ToChar(dr.GetString(5));
                             employeeModel.BasicPay = dr.GetDouble(6);
-
                             employeeModel.Deduction = dr.GetDouble(7);
-
                             employeeModel.TaxablePay = dr.GetDouble(8);
                             employeeModel.Tax = dr.GetDouble(9);
-
                             employeeModel.NetPay = dr.GetDouble(10);
                             employeeModel.StartDate = dr.GetDateTime(11);
                             employeeModel.City = dr.GetString(12);
                             employeeModel.Country = dr.GetString(13);
-
-
-
-
                             //display retrived record
                             System.Console.WriteLine(employeeModel.EmployeeID + " " + employeeModel.EmployeeName + " " + employeeModel.PhoneNumber + " " + employeeModel.Address + " " + employeeModel.Department + " " + employeeModel.Gender + " " + employeeModel.BasicPay + " " + employeeModel.Deduction + " " + employeeModel.TaxablePay + " " + " " + employeeModel.Tax + " " + employeeModel.NetPay + " " + employeeModel.StartDate + " " + employeeModel.City + " " + employeeModel.Country);
                             System.Console.WriteLine("\n");
@@ -63,7 +55,6 @@ namespace EmployeePayRoll_ADO.Net
                     }
                     //close data reader
                     dr.Close();
-
                 }
             }
             catch (Exception e)
