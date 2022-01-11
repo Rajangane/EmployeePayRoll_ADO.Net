@@ -19,7 +19,7 @@ namespace EmployeePayRoll_ADO.Net
                 EmployeeModel employeeModel = new EmployeeModel();
                 using (this.connection)
                 {
-                    string query = @"Select id,name,BasicPay,Start_Date,Gender,phone_no,Address,dept,Deduction,TaxablePay,NetPay from Employee_PayRoll";
+                    string query = @"Select EmployeeID,EmployeeName,PhoneNumber,Address,Department,Gender,BasicPay,Deductions,TaxablePay,Tax,NetPay,StartDate,City,Country from employee_payroll1";
                     //define sql command object
                     SqlCommand cmd = new SqlCommand(query, this.connection);
                     this.connection.Open();
@@ -30,20 +30,30 @@ namespace EmployeePayRoll_ADO.Net
                     {
                         while (dr.Read())
                         {
-                            employeeModel.id = dr.GetInt32(0);
-                            employeeModel.name = dr.GetString(1);
-                            employeeModel.BasicPay = dr.GetDouble(2);
-                            employeeModel.StartDate = dr.GetDateTime(3);
-                            employeeModel.Gender = Convert.ToChar(dr.GetString(4));
-                            employeeModel.phone_no = dr.GetString(5);
-                            employeeModel.Address = dr.GetString(6);
-                            employeeModel.dept = dr.GetString(7);
-                            employeeModel.Deduction = dr.GetDouble(8);
+                            employeeModel.EmployeeID = dr.GetInt32(0);
+                            employeeModel.EmployeeName = dr.GetString(1);
+                            employeeModel.PhoneNumber = dr.GetString(2);
+                            employeeModel.Address = dr.GetString(3);
+
+                            employeeModel.Department = dr.GetString(4);
+                            employeeModel.Gender = Convert.ToChar(dr.GetString(5));
+                            employeeModel.BasicPay = dr.GetDouble(6);
+
+                            employeeModel.Deduction = dr.GetDouble(7);
+
                             employeeModel.TaxablePay = dr.GetDouble(8);
+                            employeeModel.Tax = dr.GetDouble(9);
+
                             employeeModel.NetPay = dr.GetDouble(10);
+                            employeeModel.StartDate = dr.GetDateTime(11);
+                            employeeModel.City = dr.GetString(12);
+                            employeeModel.Country = dr.GetString(13);
+
+
+
 
                             //display retrived record
-                            System.Console.WriteLine(employeeModel.name + " " + employeeModel.BasicPay + " " + employeeModel.StartDate + " " + employeeModel.Gender + " " + employeeModel.phone_no + " " + employeeModel.Address + " " + employeeModel.dept + " " + employeeModel.Deduction + " " + employeeModel.TaxablePay + " " + " " + employeeModel.NetPay);
+                            System.Console.WriteLine(employeeModel.EmployeeID + " " + employeeModel.EmployeeName + " " + employeeModel.PhoneNumber + " " + employeeModel.Address + " " + employeeModel.Department + " " + employeeModel.Gender + " " + employeeModel.BasicPay + " " + employeeModel.Deduction + " " + employeeModel.TaxablePay + " " + " " + employeeModel.Tax + " " + employeeModel.NetPay + " " + employeeModel.StartDate + " " + employeeModel.City + " " + employeeModel.Country);
                             System.Console.WriteLine("\n");
                         }
                     }
